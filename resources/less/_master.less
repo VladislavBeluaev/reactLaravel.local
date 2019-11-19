@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+
+}
+
+html, body {
+  height: 100%
+}
+
+div, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, ul, p, label {
+  .no-margin;
+  .no-padding;
+}
+
+ul {
+  list-style-type: none;
+  .no-margin;
+  .no-padding;
+}
+
+a {
+  text-decoration: none;
+  .no-margin;
+  .no-padding;
+  .no-border;
+}
+
+@import "pages partials/header/header";
+@import "pages partials/menu/nav";
+@import "pages partials/index_content/index_content";
+@import "pages partials/service_content/service_content";
+@import "pages partials/footer/footer";
+@import "partials/media";
