@@ -7,8 +7,8 @@ export default class Header extends Component {
             return <li key={i}>{phone}</li>;
         });
     }
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this._headerContent = "Main header";
         this._headerElement = <h1>{this._headerContent}</h1>;
         this._contacts = (<ul>{Header.inlinePhones(phones)}</ul>);

@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+div,
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+ul,
+p,
+label {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.no-margin {
+  margin: 0;
+}
+.no-padding {
+  padding: 0;
+}
+.no-border {
+  border: none;
+}
+.no-focus-style:focus {
+  outline: none;
+}
+.no-display {
+  display: none;
+}
+.no-visible {
+  visibility: hidden;
+}
+nav[role="navigation"] {
+  margin-top: 36px;
+}
+nav[role="navigation"] ul[role="menu"] {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+nav[role="navigation"] ul[role="menu"] li {
+  margin-right: 168px;
+}
+nav[role="navigation"] ul[role="menu"] li:last-child {
+  margin-right: 0;
+}
+nav[role="navigation"] ul[role="menu"] li a {
+  font-family: "Roboto", Sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  -webkit-transition: border-bottom 0.5s;
+  transition: border-bottom 0.5s;
+}
+nav[role="navigation"] ul[role="menu"] li a:hover {
+  border-bottom: 3px solid #000;
+}
+#mobile-menu {
+  display: none;
+  margin-top: 24px;
+}
+#mobile-menu p {
+  text-align: center;
+  margin-bottom: 12px;
+}
+#mobile-menu p:hover {
+  cursor: pointer;
+}
+#mobile-menu ul[role="menu"] {
+  display: none;
+}
+#mobile-menu ul[role="menu"] li {
+  padding: 6px 6px;
+  padding-left: 12px;
+  background-color: #55595c;
+  margin-right: 0!important;
+  margin-bottom: 6px;
+}
+#mobile-menu ul[role="menu"] li a {
+  color: white;
+  border-bottom: none;
+}
+#mobile-menu ul[role="menu"] li a:hover {
+  border-bottom: none;
+}
+@media screen and (max-width: 579px) {
+  nav[role="navigation"] {
+    display: none;
+  }
+  #mobile-menu {
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
+  nav[role="navigation"] ul[role="menu"] li {
+    margin-right: 72px !important;
+  }
+  nav[role="navigation"] ul[role="menu"] li:last-child {
+    margin-right: 0!important;
+  }
+}
+@media screen and (max-width: 991px) {
+  nav[role="navigation"] ul[role="menu"] li {
+    margin-right: 132px;
+  }
+}
