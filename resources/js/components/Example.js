@@ -7,16 +7,21 @@ export default class Clicker extends Component {
         this.increment = 0;
         this.state = {
             clickQty: [],
-            clickDateTime: null
+            clickDateTime: []
 
         };
     }
+
     clickHandler(e) {
         let target = e.target;
         if (target.tagName !== 'BUTTON') return false;
-        this.setState((prevState, props) => ({
-            clickQty: prevState.clickQty.push(++this.increment),
-            clickDateTime: new Date().toLocaleTimeString()
+        let rows = this.state.clickQty;
+        let clickTimes = this.state.clickDateTime;
+        rows.push(++this.increment);
+        clickTimes.push(new Date().toLocaleTimeString());
+        this.setState(() => ({
+            clickQty: rows,
+            clickDateTime: clickTimes
         }));
     }
 
@@ -24,6 +29,7 @@ export default class Clicker extends Component {
     }*/
     render() {
         let rows = this.state.clickQty;
+        let clickDate = this.state.clickDateTime;
         console.log(rows);
         return (
             <div className="container">
@@ -34,13 +40,14 @@ export default class Clicker extends Component {
                         <th>Время клика</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    {/*{this.state.clickQty.map((r) => (
-                        <tr>
-                            <td>{r}</td>
-                            <td>{this.state.clickDateTime}</td>
-                        </tr>
-                    ))}*/}
+                    <tbody>{
+                        rows.map((row,i)=>{
+                            return(<tr key={i}>
+                                <td>{row}</td>
+                                <td>{clickDate[i]}</td>
+                            </tr>)
+                        })
+                    }
                     </tbody>
                 </table>
                 <button onClick={this.clickHandler.bind(this)}>Нажми на меня</button>

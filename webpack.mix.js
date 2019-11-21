@@ -11,5 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.react('resources/js/app.js', 'public/js')
+mix.react('resources/js/app.js', 'public/js').
+    js('resources/js/_master.js','public/js/master.js' )
+
    .less('resources/less/_master.less', 'public/css/master.less').browserSync('reactLaravel.local');
