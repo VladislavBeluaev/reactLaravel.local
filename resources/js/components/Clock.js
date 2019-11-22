@@ -1,102 +1,90 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 
-/*function AlertBox(props){
-    return <div style={props.css}>
-        {props.message}
-    </div>
-}
+let recipeIngridients = [
+    [
+        "1 lb Salmon",
+        "1 cup Pine Nuts",
+        "2 cups Butter Lettuce",
+        "1 Yellow Squash",
+        "1/2 cup Olive Oil",
+        "3 cloves of Garlic",
+    ],
+    [
+        "1 lb Salmon",
+        "1 cup Pine Nuts",
+        "2 cups Butter Lettuce",
+        "1 Yellow Squash",
+        "1/2 cup Olive Oil",
+        "3 cloves of Garlic",
+    ],
+    [
+        "1 lb Salmon",
+        "1 cup Pine Nuts",
+        "2 cups Butter Lettuce",
+        "1 Yellow Squash",
+        "1/2 cup Olive Oil",
+        "3 cloves of Garlic",
+    ]
+];
+let headersAttr = [
+    {
+        "Baker Salomon": {
+            id: "recipe-0",
+            "data-type": "title",
+            "data-react-root": "title"
+        }
+    },
+];
+console.log(headersAttr);
 
-let data = {
-    good:{
-        css:{
-            backgroundColor:"green",
-            color:"white"
-        },
-        text:"Success"
-    },
-    error:{
-        css:{
-            backgroundColor:"red",
-            color:"white"
-        },
-        text:"Errors Occurs"
-    },
-};
-export default class App extends Component{
-    constructor(props){
+export default class Clock extends Component {
+    constructor(props) {
         super(props);
     }
-    render() {
-        let random = Math.random();
 
-        return random>0.5 ?<AlertBox css={this.props.goodCss} message={this.props.goodText}/>:
-            <AlertBox css={this.props.errorCss} message={this.props.errorText}/>;
+    static renderLi(ingridient, i) {
+        return React.createElement('li', {key: i}, ingridient);
     }
-}*/
-function SuccessMessage(props) {
-    return (
-        <div className={'message message_success'}>
-            <MessageContent title={props.title}>{props.children}</MessageContent>
-        </div>
-    );
-}
 
-function MessageContent(props) {
-    return (
-        <div className="message__content">
-            <h3 className="message__title">{props.title}</h3>
-            <p className="message__text">{props.children}</p>
-        </div>
-    );
-}
-function App(){
-    return (
-        <div>
-            <SuccessMessage title="Успех">Операция завершена успешно!</SuccessMessage>
-        </div>
-    );
-}
+    static renderHeader() {
+        return React.createElement("h1", {
+            id: "recipe-0",
+            "data-type": "title",
+            "data-react-root": "title",
+        }, "Baker Salomon");
+    }
 
-ReactDom.render(
-    <App/>,document.getElementById('main_content')
-);
-/*ReactDOM.render(<App
-    goodCss={data.good.css}
-    goodText = {data.good.text}
-    errorCss={data.error.css}
-    errorText = {data.error.text}
-
-/>,document.getElementById('main_content'));*/
-/*export default class Clock extends Component{
-    constructor(props){
-        super(props);
-        this.state = {message:new Date().toLocaleTimeString()};
-        this._timerId = null;
-    }
-    _currentTime(){
-        this.setState({
-            message:new Date().toLocaleTimeString()
-        })
-    }
-    componentDidMount() {
-        this._timerId = setInterval(()=>this._currentTime(),1000);
-    }
-    componentWillMount() {
-        clearInterval(this._timerId);
+    static renderReceptCart(uniqueIndex) {
+        let [,...partials] = arguments;
+        //console.log(partials);
+        //let args = [...['div',{key:uniqueIndex,className: "recept-cart"},],...partials];
+        //console.log(...partials);
+        //React.createElement.apply(null,args);
+        React.createElement('div', {key:uniqueIndex,className: "recept-cart"},...partials);
     }
 
     render() {
-        let time = this.state.message;
-        return (
-            <div className="current-clock">
-                <p>Текущее время</p>
-                <p>{time}</p>
-            </div>
+        let header = React.createElement("h1", {
+            id: "recipe-0",
+            "data-type": "title",
+            "data-react-root": "title",
+        }, "Baker Salomon");
+        let recipeIngridientsLists = this.props.recipeIngridients;
+        return recipeIngridientsLists.map((list, i) => {
+                let ul = React.createElement('ul', {key: i},
+                    list.map((item, i) => Clock.renderLi(item,i ))
+                );
+           return Clock.renderReceptCart(i,header, ul);
+            }
         );
+        /*let recipeList = React.createElement('ul', {},
+            this.props.recipeIngridients.map((item, i) => Clock.renderLi(item, i))
+        );*/
+        //return React.createElement('div', {className: "container"}, header, recipeList);
+
     }
-}*/
-/*
+}
 ReactDom.render(
-    <Clock/>,document.getElementById('main_content')
-);*/
+    React.createElement('div', {key:1,className: "recept-cart"},Clock.renderHeader()),document.getElementById('main_content')
+);

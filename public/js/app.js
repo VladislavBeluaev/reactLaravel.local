@@ -51114,117 +51114,209 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!******************************************!*\
   !*** ./resources/js/components/Clock.js ***!
   \******************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Clock; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+    _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+    };
+  }
 
-/*function AlertBox(props){
-    return <div style={props.css}>
-        {props.message}
-    </div>
+  return _typeof(obj);
 }
 
-let data = {
-    good:{
-        css:{
-            backgroundColor:"green",
-            color:"white"
-        },
-        text:"Success"
-    },
-    error:{
-        css:{
-            backgroundColor:"red",
-            color:"white"
-        },
-        text:"Errors Occurs"
-    },
-};
-export default class App extends Component{
-    constructor(props){
-        super(props);
-    }
-    render() {
-        let random = Math.random();
-
-        return random>0.5 ?<AlertBox css={this.props.goodCss} message={this.props.goodText}/>:
-            <AlertBox css={this.props.errorCss} message={this.props.errorText}/>;
-    }
-}*/
-
-function SuccessMessage(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: 'message message_success'
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MessageContent, {
-    title: props.title
-  }, props.children));
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
 }
 
-function MessageContent(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "message__content"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: "message__title"
-  }, props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "message__text"
-  }, props.children));
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
 }
 
-function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SuccessMessage, {
-    title: "\u0423\u0441\u043F\u0435\u0445"
-  }, "\u041E\u043F\u0435\u0440\u0430\u0446\u0438\u044F \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0430 \u0443\u0441\u043F\u0435\u0448\u043D\u043E!"));
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
 }
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('main_content'));
-/*ReactDOM.render(<App
-    goodCss={data.good.css}
-    goodText = {data.good.text}
-    errorCss={data.error.css}
-    errorText = {data.error.text}
-
-/>,document.getElementById('main_content'));*/
-
-/*export default class Clock extends Component{
-    constructor(props){
-        super(props);
-        this.state = {message:new Date().toLocaleTimeString()};
-        this._timerId = null;
-    }
-    _currentTime(){
-        this.setState({
-            message:new Date().toLocaleTimeString()
-        })
-    }
-    componentDidMount() {
-        this._timerId = setInterval(()=>this._currentTime(),1000);
-    }
-    componentWillMount() {
-        clearInterval(this._timerId);
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
     }
 
-    render() {
-        let time = this.state.message;
-        return (
-            <div className="current-clock">
-                <p>Текущее время</p>
-                <p>{time}</p>
-            </div>
-        );
-    }
-}*/
+    return arr2;
+  }
+}
 
-/*
-ReactDom.render(
-    <Clock/>,document.getElementById('main_content')
-);*/
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+
+
+var recipeIngridients = [["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"], ["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"], ["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"]];
+var headersAttr = [{
+  "Baker Salomon": {
+    id: "recipe-0",
+    "data-type": "title",
+    "data-react-root": "title"
+  }
+}];
+console.log(headersAttr);
+
+var Clock =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Clock, _Component);
+
+  function Clock(props) {
+    _classCallCheck(this, Clock);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Clock).call(this, props));
+  }
+
+  _createClass(Clock, [{
+    key: "render",
+    value: function render() {
+      var header = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "recipe-0",
+        "data-type": "title",
+        "data-react-root": "title"
+      }, "Baker Salomon");
+      var recipeIngridientsLists = this.props.recipeIngridients;
+      return recipeIngridientsLists.map(function (list, i) {
+        var ul = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('ul', {
+          key: i
+        }, list.map(function (item, i) {
+          return Clock.renderLi(item, i);
+        }));
+        return Clock.renderReceptCart(i, header, ul);
+      });
+      /*let recipeList = React.createElement('ul', {},
+          this.props.recipeIngridients.map((item, i) => Clock.renderLi(item, i))
+      );*/
+      //return React.createElement('div', {className: "container"}, header, recipeList);
+    }
+  }], [{
+    key: "renderLi",
+    value: function renderLi(ingridient, i) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('li', {
+        key: i
+      }, ingridient);
+    }
+  }, {
+    key: "renderHeader",
+    value: function renderHeader() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "recipe-0",
+        "data-type": "title",
+        "data-react-root": "title"
+      }, "Baker Salomon");
+    }
+  }, {
+    key: "renderReceptCart",
+    value: function renderReceptCart(uniqueIndex) {
+      var _arguments = Array.prototype.slice.call(arguments),
+          partials = _arguments.slice(1); //console.log(partials);
+      //let args = [...['div',{key:uniqueIndex,className: "recept-cart"},],...partials];
+      //console.log(...partials);
+      //React.createElement.apply(null,args);
+
+
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement.apply(react__WEBPACK_IMPORTED_MODULE_0___default.a, ['div', {
+        key: uniqueIndex,
+        className: "recept-cart"
+      }].concat(_toConsumableArray(partials)));
+    }
+  }]);
+
+  return Clock;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('div', {
+  key: 1,
+  className: "recept-cart"
+}, Clock.renderHeader()), document.getElementById('main_content'));
 
 /***/ }),
 
