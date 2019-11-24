@@ -51071,10 +51071,12 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+/*require('./components/Example');
+require('./components/Clock');
+require('./components/ListComponent');*/
 
-__webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
 
-__webpack_require__(/*! ./components/Clock */ "./resources/js/components/Clock.js");
+__webpack_require__(/*! ./components/StreetFoodComponent */ "./resources/js/components/StreetFoodComponent.js");
 
 /***/ }),
 
@@ -51110,381 +51112,246 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Clock.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Clock.js ***!
-  \******************************************/
-/*! exports provided: default */
+/***/ "./resources/js/components/StreetFoodComponent.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/StreetFoodComponent.js ***!
+  \********************************************************/
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Clock; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
 
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-
-function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
     }
 
-    return arr2;
-  }
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
+    return target;
   };
-  return _getPrototypeOf(o);
+
+  return _extends.apply(this, arguments);
 }
+/**
+ * Created by User on 24.11.2019.
+ */
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
 
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
+
+
+
+
+var Header = function Header(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.headerName);
+};
+
+var Ingridient = function Ingridient(ingridient, key) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    className: "ingridients-collection-item",
+    key: key
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, ingridient.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, ingridient.amount), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, ingridient.measurement));
+};
+
+var Ingridients = function Ingridients(_ref) {
+  var ingridientsCollection = _ref.ingridientsCollection;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "ingridients-collection"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Amount"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Measurement"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, ingridientsCollection.map(function (ingridient, index) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Ingridient, _extends({}, ingridient, {
+      key: index
+    }));
+  })));
+};
+
+var Step = function Step(_ref2) {
+  var stepName = _ref2.stepName,
+      index = _ref2.index;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "steps-collection-item",
+    key: index
+  }, stepName);
+};
+
+var Steps = function Steps(_ref3) {
+  var stepsList = _ref3.stepsList;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "steps-to-introduction"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Steps introduction:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+    className: "steps-collection",
+    style: {
+      marginTop: 0
     }
+  }, stepsList.map(function (step, index) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
+      stepName: step,
+      key: index
+    });
+  })));
+};
+
+var ReceptCart = function ReceptCart(_ref4) {
+  var cartItem = _ref4.cartItem,
+      index = _ref4.index;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "recept-cart",
+    key: index
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, {
+    headerName: cartItem.name
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Ingridients, {
+    ingridientsCollection: cartItem.ingredients
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Steps, {
+    stepsList: cartItem.steps
+  }));
+};
+
+var ReceptCarts = function ReceptCarts(_ref5) {
+  var receptCart = _ref5.receptCart;
+  return receptCart.map(function (cart, index) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReceptCart, {
+      cartItem: cart,
+      key: index
+    });
   });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
+};
 
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
+var CookBook = function CookBook(_ref6) {
+  var recept = _ref6.recept;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "cookBook"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ReceptCarts, {
+    receptCart: recept
+  }));
+};
 
-  return _setPrototypeOf(o, p);
-}
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CookBook, {
+  recept: _constants__WEBPACK_IMPORTED_MODULE_2__["data"]
+}), document.getElementById('main_content'));
 
+/***/ }),
 
+/***/ "./resources/js/constants.js":
+/*!***********************************!*\
+  !*** ./resources/js/constants.js ***!
+  \***********************************/
+/*! exports provided: phones, recipeIngridients, recipeNames, data */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var recipeIngridients = [["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"], ["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"], ["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"]];
-var headersAttr = [{
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "phones", function() { return phones; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recipeIngridients", function() { return recipeIngridients; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recipeNames", function() { return recipeNames; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "data", function() { return data; });
+var phones = ['8 925 073 02 81', '8 977 890 87 34'];
+var recipeIngridients = [["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"], ["¼ cup plain yogurt", "1 tbsp. apple cider vinegar", "1 tbsp. water", "Salt", "Black pepper", "1 can chickpeas, rinsed and drained", "2 ½ cups of sliced green cabbage", "2 stalks celery (sliced)", "2 shredded carrots", "2 tbsps. sesame seeds (toasted)"], ["A handful of kale", "A handful of cabbage", "A handful of parsley", "A stalk of celery", "1/2 cup Olive Oil", "An apple or a pear"]];
+var recipeNames = [{
   "Baker Salomon": {
     id: "recipe-0",
+    "data-type": "title"
+  }
+}, {
+  "Chickpea Slaw": {
+    id: "recipe-1",
+    "data-type": "title",
+    "data-react-root": "title"
+  }
+}, {
+  "Juice Your Greens": {
+    id: "recipe-2",
     "data-type": "title",
     "data-react-root": "title"
   }
 }];
-console.log(headersAttr);
-
-var Clock =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Clock, _Component);
-
-  function Clock(props) {
-    _classCallCheck(this, Clock);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Clock).call(this, props));
-  }
-
-  _createClass(Clock, [{
-    key: "render",
-    value: function render() {
-      var header = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        id: "recipe-0",
-        "data-type": "title",
-        "data-react-root": "title"
-      }, "Baker Salomon");
-      var recipeIngridientsLists = this.props.recipeIngridients;
-      return recipeIngridientsLists.map(function (list, i) {
-        var ul = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('ul', {
-          key: i
-        }, list.map(function (item, i) {
-          return Clock.renderLi(item, i);
-        }));
-        return Clock.renderReceptCart(i, header, ul);
-      });
-      /*let recipeList = React.createElement('ul', {},
-          this.props.recipeIngridients.map((item, i) => Clock.renderLi(item, i))
-      );*/
-      //return React.createElement('div', {className: "container"}, header, recipeList);
-    }
-  }], [{
-    key: "renderLi",
-    value: function renderLi(ingridient, i) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('li', {
-        key: i
-      }, ingridient);
-    }
+var data = [{
+  "name": "Baked Salmon",
+  "ingredients": [{
+    "name": "Salmon",
+    "amount": 1,
+    "measurement": "l lb"
   }, {
-    key: "renderHeader",
-    value: function renderHeader() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        id: "recipe-0",
-        "data-type": "title",
-        "data-react-root": "title"
-      }, "Baker Salomon");
-    }
+    "name": "Pine Nuts",
+    "amount": 1,
+    "measurement": "cup"
   }, {
-    key: "renderReceptCart",
-    value: function renderReceptCart(uniqueIndex) {
-      var _arguments = Array.prototype.slice.call(arguments),
-          partials = _arguments.slice(1); //console.log(partials);
-      //let args = [...['div',{key:uniqueIndex,className: "recept-cart"},],...partials];
-      //console.log(...partials);
-      //React.createElement.apply(null,args);
-
-
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement.apply(react__WEBPACK_IMPORTED_MODULE_0___default.a, ['div', {
-        key: uniqueIndex,
-        className: "recept-cart"
-      }].concat(_toConsumableArray(partials)));
-    }
-  }]);
-
-  return Clock;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('div', {
-  key: 1,
-  className: "recept-cart"
-}, Clock.renderHeader()), document.getElementById('main_content'));
-
-/***/ }),
-
-/***/ "./resources/js/components/Example.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/Example.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Clicker; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-
-
-
-var Clicker =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Clicker, _Component);
-
-  function Clicker(props) {
-    var _this;
-
-    _classCallCheck(this, Clicker);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Clicker).call(this, props));
-    _this.increment = 0;
-    _this.state = {
-      clickQty: [],
-      clickDateTime: []
-    };
-    return _this;
-  }
-
-  _createClass(Clicker, [{
-    key: "clickHandler",
-    value: function clickHandler(e) {
-      var target = e.target;
-      if (target.tagName !== 'BUTTON') return false;
-      var rows = this.state.clickQty;
-      var clickTimes = this.state.clickDateTime;
-      rows.push(++this.increment);
-      clickTimes.push(new Date().toLocaleTimeString());
-      this.setState(function () {
-        return {
-          clickQty: rows,
-          clickDateTime: clickTimes
-        };
-      });
-    }
-    /*componentDidMount() {
-    }*/
-
+    "name": "Butter Lettuce",
+    "amount": 2,
+    "measurement": "cups"
   }, {
-    key: "render",
-    value: function render() {
-      var rows = this.state.clickQty;
-      var clickDate = this.state.clickDateTime;
-      console.log(rows);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u041D\u043E\u043C\u0435\u0440 \u043A\u043B\u0438\u043A\u0430"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u0412\u0440\u0435\u043C\u044F \u043A\u043B\u0438\u043A\u0430"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, rows.map(function (row, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-          key: i
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, row), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, clickDate[i]));
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.clickHandler.bind(this)
-      }, "\u041D\u0430\u0436\u043C\u0438 \u043D\u0430 \u043C\u0435\u043D\u044F"));
-    }
-  }]);
+    "name": "Yellow Squash",
+    "amount": 1,
+    "measurement": "med"
+  }, {
+    "name": "Olive Oil",
+    "amount": 0.5,
+    "measurement": "cup"
+  }, {
+    "name": "Garlic",
+    "amount": 3,
+    "measurement": "cloves"
+  }],
+  "steps": ["Preheat the oven to 350 degrees.", "Spread the olive oil around a glass baking dish.", "Add the salmon, garlic, and pine nuts to the dish.", "Bake for 15 minutes.", "Add the yellow squash and put back in the oven for 30 mins.", "Remove from oven and let cool for 15 minutes. Add the lettuce and serve."]
+}, {
+  "name": "Fish Tacos",
+  "ingredients": [{
+    "name": "Whitefish",
+    "amount": 1,
+    "measurement": "l lb"
+  }, {
+    "name": "Cheese",
+    "amount": 1,
+    "measurement": "cup"
+  }, {
+    "name": "Iceberg Lettuce",
+    "amount": 2,
+    "measurement": "cups"
+  }, {
+    "name": "Tomatoes",
+    "amount": 2,
+    "measurement": "large"
+  }, {
+    "name": "Tortillas",
+    "amount": 3,
+    "measurement": "med"
+  }],
+  "steps": ["Cook the fish on the grill until hot.", "Place the fish on the 3 tortillas.", "Top them with lettuce, tomatoes, and cheese."]
+}];
+var recept = {
+  "name": "Fish Tacos",
+  "ingredients": [{
+    "name": "Whitefish",
+    "amount": 1,
+    "measurement": "l lb"
+  }, {
+    "name": "Cheese",
+    "amount": 1,
+    "measurement": "cup"
+  }, {
+    "name": "Iceberg Lettuce",
+    "amount": 2,
+    "measurement": "cups"
+  }, {
+    "name": "Tomatoes",
+    "amount": 2,
+    "measurement": "large"
+  }, {
+    "name": "Tortillas",
+    "amount": 3,
+    "measurement": "med"
+  }],
+  "steps": ["Cook the fish on the grill until hot.", "Place the fish on the 3 tortillas.", "Top them with lettuce, tomatoes, and cheese."]
+};
 
-  return Clicker;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Clicker, null), document.getElementById('user_greeting'));
 
 /***/ }),
 
@@ -51495,7 +51362,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\temp\OSPanel_new\OSPanel\domains\reactLaravel.local\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! d:\OSPanel\domains\reactLaravel.local\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

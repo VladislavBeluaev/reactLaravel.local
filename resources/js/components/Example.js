@@ -55,8 +55,10 @@ export default class Clicker extends Component {
         );
     }
 }
+/*
 
 
 ReactDOM.render(
     <Clicker/>, document.getElementById('user_greeting')
 );
+*/
