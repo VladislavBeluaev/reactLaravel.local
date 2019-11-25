@@ -107,4 +107,18 @@ let recept = {
     ]
 };
 
-export {phones,recipeIngridients,recipeNames,data}
+const test_data = {
+  name:"test",
+  lName:"test_ivanov",
+  title:"description"
+};
+const form = {
+    action:"/",
+    method:'POST',
+    className:[],
+    inputs:[
+        {name:'color_name', type:'text',is_required:false,className:[]}
+    ]
+};
+
+export {phones,recipeIngridients,recipeNames,data,test_data,recept,form}

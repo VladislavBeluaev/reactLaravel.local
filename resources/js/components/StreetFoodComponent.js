@@ -3,8 +3,8 @@
  */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import ShortDescriptionComponent from "./ShortDescriptionComponent";
 import {data} from "../constants";
-
 const Header = props =>
     <h2>
         {props.headerName}
@@ -50,11 +50,17 @@ const Steps = ({stepsList}) =>
 </div>;
 
 const ReceptCart = ({cartItem,index}) =>
-    <div className="recept-cart" key={index}>
-        <Header headerName={cartItem.name}/>
-        <Ingridients ingridientsCollection={cartItem.ingredients}/>
-        <Steps stepsList={cartItem.steps}/>
-    </div>;
+{
+    const {name,ingredients,steps} =cartItem;
+    return (
+        <div className="recept-cart" key={index}>
+            <Header headerName={name}/>
+            <ShortDescriptionComponent ingridientsQty={ingredients.length} stepsQty={steps.length}/>
+            <Ingridients ingridientsCollection={ingredients}/>
+            <Steps stepsList={steps}/>
+        </div>
+    );
+}
 const ReceptCarts = ({receptCart}) =>
    receptCart.map((cart, index) => <ReceptCart cartItem={cart} key={index}/>);
 

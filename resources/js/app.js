@@ -15,4 +15,6 @@ require('./bootstrap');
 /*require('./components/Example');
 require('./components/Clock');
 require('./components/ListComponent');*/
-require('./components/StreetFoodComponent');
+//require('./components/StreetFoodComponent');
+//require('./components/ShortDescriptionComponent');
+require('./components/form/FormComponent');

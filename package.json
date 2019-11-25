@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "create-react-class": "^15.6.3"
+        "create-react-class": "^15.6.3",
+        "prop-types": "^15.7.2"
     }
 }
