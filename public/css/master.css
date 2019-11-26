@@ -136,3 +136,18 @@ nav[role="navigation"] ul[role="menu"] li a:hover {
     margin-right: 132px;
   }
 }
+#user_greeting {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+#user_greeting form {
+  margin-top: 48px;
+  width: 50%;
+}
+#user_greeting form input {
+  margin-bottom: 24px;
+}

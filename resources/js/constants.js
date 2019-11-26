@@ -115,10 +115,16 @@ const test_data = {
 const form = {
     action:"/",
     method:'POST',
-    className:[],
+    className:['form-group','color_form'],
     inputs:[
-        {name:'color_name', type:'text',is_required:false,className:[]}
+        {name:'color_name',refs:"_color_name", type:'text',is_required:false,placeholder:'Enter color name',className:['form-control']},
+        {name:'hex_name',refs:"_hex_name", type:'color',is_required:false,placeholder:'Enter hex name color',className:['form-control']}
+    ],
+    buttons:[
+        {type:'submit',title:"Отправить",className:['btn','btn-success','btn-sm'],events:[
+                /*{onClick:(e)=>e.preventDefault()},
+                {onMouseOver:(e)=>console.log(e.target)}*/,
+            ]},
     ]
 };
-
 export {phones,recipeIngridients,recipeNames,data,test_data,recept,form}
