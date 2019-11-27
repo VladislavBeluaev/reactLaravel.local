@@ -9,34 +9,31 @@ export default class FormComponent extends Component {
     constructor(props) {
         super(props);
         this.submitHandler = this.submitHandler.bind(this);
-        this.inputsRenderRef = React.createRef();
+        if(this.props.refs.length)
+        this.InputRefs = [];
     }
-
     submitHandler(e) {
         e.preventDefault();
-        console.dir(this.refs);
-        /* const {_color,_hex} = this.refs;
-         console.log(`Current color name ${_color.value}, current hex-code ${_hex.value}`);
-         _color.value = '';
-         _hex.value = '#fff';*/
-
-
+        if(!this.InputRefs.length) return false;
+        let [_color,_hex] = this.InputRefs.map((item)=>ReactDom.findDOMNode(item));
+        console.log(_hex.value);
+    }
+    initRefs(node){
+        if(this.InputRefs!==null && Array.isArray(this.InputRefs))
+            this.InputRefs.push(node);
     }
     componentDidMount() {
-        this.textInput.focus();
+        ReactDom.findDOMNode(this.InputRefs[0]).focus();
     }
 
     focusTextInput() {
-        // Установим фокус на текстовое поле с помощью чистого DOM API
-        // Примечание: обращаемся к "current", чтобы получить DOM-узел
-        this.inputsRenderRef.current.focus();
     }
     render() {
         const {action, method, className, inputs, buttons} = this.props;
         return (
             <form action={action} method={method} className={className.join(' ')} onSubmit={this.submitHandler}>
                 {inputs.map((input, index) =>
-                    <InputComponent {...input} key={index} ref={(input) => { this.textInput = input; }}/>)}
+                    <InputComponent {...input} key={index} ref={ this.initRefs.bind(this)}/>)}
                 <RenderButtonComponents buttons={buttons}/>
             </form>
         );
@@ -46,6 +43,7 @@ FormComponent.propTypes = {
     action: PropTypes.string.isRequired,
     method: PropTypes.string.isRequired,
     className: PropTypes.array.isRequired,
+    refs:PropTypes.array.isRequired,
     inputs: PropTypes.array.isRequired,
 };
 

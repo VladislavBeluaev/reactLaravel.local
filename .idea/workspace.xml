@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bfa7f3c6-9b05-4c1b-8032-ea0fbcf8c7e8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/master.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/master.less" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/form/ButtonComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/form/ButtonComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/form/FormComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/form/FormComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/form/InputComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/form/InputComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/less/_master.less" beforeDir="false" afterPath="$PROJECT_DIR$/resources/less/_master.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/form/FormComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="38" column="75" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="75" />
+            <state relative-caret-position="232">
+              <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -63,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/form/ButtonComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="196">
               <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -87,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="119" column="44" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="44" />
+            <state relative-caret-position="428">
+              <caret line="118" column="22" selection-start-line="118" selection-start-column="11" selection-end-line="118" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -96,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/less/_master.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
+            <state relative-caret-position="1176">
               <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
             </state>
           </provider>
@@ -161,8 +152,8 @@
         <option value="$PROJECT_DIR$/webpack.mix.js" />
         <option value="$PROJECT_DIR$/resources/less/_master.less" />
         <option value="$PROJECT_DIR$/resources/js/components/form/ButtonComponent.js" />
-        <option value="$PROJECT_DIR$/resources/js/constants.js" />
         <option value="$PROJECT_DIR$/resources/js/components/form/InputComponent.js" />
+        <option value="$PROJECT_DIR$/resources/js/constants.js" />
         <option value="$PROJECT_DIR$/resources/js/components/form/FormComponent.js" />
       </list>
     </option>
@@ -342,17 +333,19 @@
       <workItem from="1574598882071" duration="22895000" />
       <workItem from="1574673472540" duration="10064000" />
       <workItem from="1574755729440" duration="27855000" />
+      <workItem from="1574846072948" duration="5088000" />
+      <workItem from="1574861784371" duration="2152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72217000" />
+    <option name="totallyTimeSpent" value="79457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12313433" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12526652" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -494,6 +487,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/master.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/master.less" />
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" column="43" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/form/ButtonComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/StreetFoodComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
@@ -504,19 +518,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/less/_master.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="43" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="43" />
+        <state relative-caret-position="1176">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/master.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/master.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2091" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layout/welcome.blade.php">
@@ -533,23 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/less/_master.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/form/ButtonComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/form/InputComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -562,15 +551,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="119" column="44" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="44" />
+        <state relative-caret-position="428">
+          <caret line="118" column="22" selection-start-line="118" selection-start-column="11" selection-end-line="118" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/form/FormComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="38" column="75" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="75" />
+        <state relative-caret-position="232">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

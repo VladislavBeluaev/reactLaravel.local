@@ -52134,6 +52134,48 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -52222,7 +52264,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(FormComponent).call(this, props));
     _this.submitHandler = _this.submitHandler.bind(_assertThisInitialized(_this));
-    _this.inputsRenderRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    if (_this.props.refs.length) _this.InputRefs = [];
     return _this;
   }
 
@@ -52230,24 +52272,30 @@ function (_Component) {
     key: "submitHandler",
     value: function submitHandler(e) {
       e.preventDefault();
-      console.dir(this.refs);
-      /* const {_color,_hex} = this.refs;
-       console.log(`Current color name ${_color.value}, current hex-code ${_hex.value}`);
-       _color.value = '';
-       _hex.value = '#fff';*/
+      if (!this.InputRefs.length) return false;
+
+      var _this$InputRefs$map = this.InputRefs.map(function (item) {
+        return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(item);
+      }),
+          _this$InputRefs$map2 = _slicedToArray(_this$InputRefs$map, 2),
+          _color = _this$InputRefs$map2[0],
+          _hex = _this$InputRefs$map2[1];
+
+      console.log(_hex.value);
+    }
+  }, {
+    key: "initRefs",
+    value: function initRefs(node) {
+      if (this.InputRefs !== null && Array.isArray(this.InputRefs)) this.InputRefs.push(node);
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.textInput.focus();
+      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.InputRefs[0]).focus();
     }
   }, {
     key: "focusTextInput",
-    value: function focusTextInput() {
-      // Установим фокус на текстовое поле с помощью чистого DOM API
-      // Примечание: обращаемся к "current", чтобы получить DOM-узел
-      this.inputsRenderRef.current.focus();
-    }
+    value: function focusTextInput() {}
   }, {
     key: "render",
     value: function render() {
@@ -52267,9 +52315,7 @@ function (_Component) {
       }, inputs.map(function (input, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputComponent__WEBPACK_IMPORTED_MODULE_3__["InputComponent"], _extends({}, input, {
           key: index,
-          ref: function ref(input) {
-            _this2.textInput = input;
-          }
+          ref: _this2.initRefs.bind(_this2)
         }));
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_4__["RenderButtonComponents"], {
         buttons: buttons
@@ -52285,6 +52331,7 @@ FormComponent.propTypes = {
   action: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
   method: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
   className: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
+  refs: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
   inputs: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired
 };
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormComponent, _constants__WEBPACK_IMPORTED_MODULE_5__["form"]), document.getElementById('user_greeting'));
@@ -52621,16 +52668,15 @@ var form = {
   action: "/",
   method: 'POST',
   className: ['form-group', 'color_form'],
+  refs: ['_color_name', '_hex_name'],
   inputs: [{
     name: 'color_name',
-    refs: "_color_name",
     type: 'text',
     is_required: false,
     placeholder: 'Enter color name',
     className: ['form-control']
   }, {
     name: 'hex_name',
-    refs: "_hex_name",
     type: 'color',
     is_required: false,
     placeholder: 'Enter hex name color',
@@ -52640,10 +52686,7 @@ var form = {
     type: 'submit',
     title: "Отправить",
     className: ['btn', 'btn-success', 'btn-sm'],
-    events: [
-      /*{onClick:(e)=>e.preventDefault()},
-      {onMouseOver:(e)=>console.log(e.target)}*/
-    ,]
+    events: []
   }]
 };
 

@@ -116,15 +116,13 @@ const form = {
     action:"/",
     method:'POST',
     className:['form-group','color_form'],
+    refs:['_color_name','_hex_name'],
     inputs:[
-        {name:'color_name',refs:"_color_name", type:'text',is_required:false,placeholder:'Enter color name',className:['form-control']},
-        {name:'hex_name',refs:"_hex_name", type:'color',is_required:false,placeholder:'Enter hex name color',className:['form-control']}
+        {name:'color_name', type:'text',is_required:false,placeholder:'Enter color name',className:['form-control']},
+        {name:'hex_name', type:'color',is_required:false,placeholder:'Enter hex name color',className:['form-control']}
     ],
     buttons:[
-        {type:'submit',title:"Отправить",className:['btn','btn-success','btn-sm'],events:[
-                /*{onClick:(e)=>e.preventDefault()},
-                {onMouseOver:(e)=>console.log(e.target)}*/,
-            ]},
+        {type:'submit',title:"Отправить",className:['btn','btn-success','btn-sm'],events:[]},
     ]
 };
 export {phones,recipeIngridients,recipeNames,data,test_data,recept,form}
