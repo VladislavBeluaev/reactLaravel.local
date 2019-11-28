@@ -47,3 +47,21 @@ a {
     }
   }
 }
+#main_content{
+  margin-top: @defaultGutter*5;
+  .star-ratting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      margin-right: @defaultGutter/4;
+      &:hover{
+        cursor: pointer;
+        color:yellowgreen;
+      }
+      &:last-child{
+        margin-right:0;
+      }
+    }
+  }
+}

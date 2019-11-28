@@ -151,3 +151,24 @@ nav[role="navigation"] ul[role="menu"] li a:hover {
 #user_greeting form input {
   margin-bottom: 24px;
 }
+#main_content {
+  margin-top: 120px;
+}
+#main_content .star-ratting {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+#main_content .star-ratting p {
+  margin-right: 6px;
+}
+#main_content .star-ratting p:hover {
+  cursor: pointer;
+  color: yellowgreen;
+}
+#main_content .star-ratting p:last-child {
+  margin-right: 0;
+}

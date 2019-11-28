@@ -16,7 +16,6 @@ export default class FormComponent extends Component {
         e.preventDefault();
         if(!this.InputRefs.length) return false;
         let [_color,_hex] = this.InputRefs.map((item)=>ReactDom.findDOMNode(item));
-        console.log(_hex.value);
     }
     initRefs(node){
         if(this.InputRefs!==null && Array.isArray(this.InputRefs))

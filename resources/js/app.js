@@ -17,4 +17,5 @@ require('./components/Clock');
 require('./components/ListComponent');*/
 //require('./components/StreetFoodComponent');
 //require('./components/ShortDescriptionComponent');
-require('./components/form/FormComponent');
+//require('./components/form/FormComponent');
+require('./Output/App');

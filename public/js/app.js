@@ -51946,6 +51946,110 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/Output/App.js":
+/*!************************************!*\
+  !*** ./resources/js/Output/App.js ***!
+  \************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _stars_files_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./stars_files/constants */ "./resources/js/Output/stars_files/constants.js");
+/* harmony import */ var _stars_files_events_handlers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./stars_files/events.handlers */ "./resources/js/Output/stars_files/events.handlers.js");
+/* harmony import */ var _components_star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/star_rating/StarComponent */ "./resources/js/components/star_rating/StarComponent.js");
+
+
+
+
+
+
+
+var App = function App(props) {
+  var _props$star = props.star,
+      starsCount = _props$star.starsCount,
+      starItem = _props$star.starItem,
+      starWrapper = _props$star.starWrapper;
+  var stars = [];
+
+  while (starsCount) {
+    stars.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_5__["StarItem"], {
+      className: starItem.className,
+      key: starsCount
+    }));
+    starsCount--;
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_5__["StarWrapper"], {
+    className: starWrapper.className,
+    children: stars,
+    onClick: _stars_files_events_handlers__WEBPACK_IMPORTED_MODULE_4__["onClick"]
+  });
+};
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, {
+  star: _stars_files_constants__WEBPACK_IMPORTED_MODULE_3__["starsAttributes"]
+}), document.getElementById('main_content'));
+
+/***/ }),
+
+/***/ "./resources/js/Output/stars_files/constants.js":
+/*!******************************************************!*\
+  !*** ./resources/js/Output/stars_files/constants.js ***!
+  \******************************************************/
+/*! exports provided: starsAttributes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "starsAttributes", function() { return starsAttributes; });
+var starsAttributes = {
+  starsCount: 5,
+  starWrapper: {
+    className: ['star-ratting'],
+    events: {
+      onClick: function onClick(e) {
+        var target = e.target;
+      }
+    }
+  },
+  starItem: {
+    className: ['fa', 'fa-star'],
+    selected: false
+  }
+};
+
+
+/***/ }),
+
+/***/ "./resources/js/Output/stars_files/events.handlers.js":
+/*!************************************************************!*\
+  !*** ./resources/js/Output/stars_files/events.handlers.js ***!
+  \************************************************************/
+/*! exports provided: onClick */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onClick", function() { return onClick; });
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./resources/js/Output/stars_files/constants.js");
+
+
+var onClick = function onClick(event) {
+  var target = event.target;
+  if (target.tagName === 'SPAN' && target.closest(".".concat(_constants__WEBPACK_IMPORTED_MODULE_0__["starsAttributes"].starWrapper.className))) console.log(target);
+};
+
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -51970,9 +52074,10 @@ require('./components/Clock');
 require('./components/ListComponent');*/
 //require('./components/StreetFoodComponent');
 //require('./components/ShortDescriptionComponent');
+//require('./components/form/FormComponent');
 
 
-__webpack_require__(/*! ./components/form/FormComponent */ "./resources/js/components/form/FormComponent.js");
+__webpack_require__(/*! ./Output/App */ "./resources/js/Output/App.js");
 
 /***/ }),
 
@@ -52008,686 +52113,136 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/form/ButtonComponent.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/form/ButtonComponent.js ***!
-  \*********************************************************/
-/*! exports provided: Button, RenderButtonComponents */
+/***/ "./resources/js/components/star_rating/StarComponent.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/star_rating/StarComponent.js ***!
+  \**************************************************************/
+/*! exports provided: StarItem, StarWrapper */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RenderButtonComponents", function() { return RenderButtonComponents; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-
-
-
-var Button = function Button(props) {
-  var type = props.type,
-      title = props.title,
-      className = props.className,
-      events = props.events;
-  var attributes = {
-    type: type,
-    className: className.join(" ")
-  };
-  if (events.length !== 0) events.forEach(function (item) {
-    var key = Object.keys(item)[0];
-    Object.defineProperty(attributes, key, {
-      value: item[key],
-      enumerable: true
-    });
-  });
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('button', attributes, title);
-};
-
-var RenderButtonComponents = function RenderButtonComponents(_ref) {
-  var buttons = _ref.buttons;
-  return buttons.map(function (button, index) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Button, _extends({}, button, {
-      key: index
-    }));
-  });
-};
-
-Button.propType = {
-  type: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  title: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  className: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array.isRequired
-};
-
-
-/***/ }),
-
-/***/ "./resources/js/components/form/FormComponent.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/form/FormComponent.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarItem", function() { return StarItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarWrapper", function() { return StarWrapper; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _InputComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./InputComponent */ "./resources/js/components/form/InputComponent.js");
-/* harmony import */ var _ButtonComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ButtonComponent */ "./resources/js/components/form/ButtonComponent.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../constants */ "./resources/js/constants.js");
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
 
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(source, true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(source).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
   } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
+    obj[key] = value;
   }
 
-  return _typeof(obj);
+  return obj;
 }
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
+  var target = _objectWithoutPropertiesLoose(source, excluded);
 
-    return target;
-  };
+  var key, i;
 
-  return _extends.apply(this, arguments);
-}
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
 
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
-    return;
-  }
-
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
     }
   }
 
-  return _arr;
+  return target;
 }
 
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
   }
 
-  return _assertThisInitialized(self);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
+  return target;
 }
 
 
 
 
 
+var StarItem = function StarItem(_ref) {
+  var className = _ref.className;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: className.join(" ")
+  }, null));
+};
 
+StarItem.propTypes = {
+  className: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired
+};
 
+var StarWrapper = function StarWrapper(_ref2) {
+  var className = _ref2.className,
+      children = _ref2.children,
+      events = _objectWithoutProperties(_ref2, ["className", "children"]);
 
-var FormComponent =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(FormComponent, _Component);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('div', _objectSpread({
+    className: className
+  }, events), children);
+};
 
-  function FormComponent(props) {
-    var _this;
-
-    _classCallCheck(this, FormComponent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormComponent).call(this, props));
-    _this.submitHandler = _this.submitHandler.bind(_assertThisInitialized(_this));
-    if (_this.props.refs.length) _this.InputRefs = [];
-    return _this;
-  }
-
-  _createClass(FormComponent, [{
-    key: "submitHandler",
-    value: function submitHandler(e) {
-      e.preventDefault();
-      if (!this.InputRefs.length) return false;
-
-      var _this$InputRefs$map = this.InputRefs.map(function (item) {
-        return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(item);
-      }),
-          _this$InputRefs$map2 = _slicedToArray(_this$InputRefs$map, 2),
-          _color = _this$InputRefs$map2[0],
-          _hex = _this$InputRefs$map2[1];
-
-      console.log(_hex.value);
-    }
-  }, {
-    key: "initRefs",
-    value: function initRefs(node) {
-      if (this.InputRefs !== null && Array.isArray(this.InputRefs)) this.InputRefs.push(node);
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.findDOMNode(this.InputRefs[0]).focus();
-    }
-  }, {
-    key: "focusTextInput",
-    value: function focusTextInput() {}
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$props = this.props,
-          action = _this$props.action,
-          method = _this$props.method,
-          className = _this$props.className,
-          inputs = _this$props.inputs,
-          buttons = _this$props.buttons;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        action: action,
-        method: method,
-        className: className.join(' '),
-        onSubmit: this.submitHandler
-      }, inputs.map(function (input, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputComponent__WEBPACK_IMPORTED_MODULE_3__["InputComponent"], _extends({}, input, {
-          key: index,
-          ref: _this2.initRefs.bind(_this2)
-        }));
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ButtonComponent__WEBPACK_IMPORTED_MODULE_4__["RenderButtonComponents"], {
-        buttons: buttons
-      }));
-    }
-  }]);
-
-  return FormComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-FormComponent.propTypes = {
-  action: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
-  method: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+StarWrapper.propTypes = {
   className: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
-  refs: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
-  inputs: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired
-};
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormComponent, _constants__WEBPACK_IMPORTED_MODULE_5__["form"]), document.getElementById('user_greeting'));
-
-/***/ }),
-
-/***/ "./resources/js/components/form/InputComponent.js":
-/*!********************************************************!*\
-  !*** ./resources/js/components/form/InputComponent.js ***!
-  \********************************************************/
-/*! exports provided: InputComponent, RenderInputComponents */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputComponent", function() { return InputComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RenderInputComponents", function() { return RenderInputComponents; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-
-
-
-var InputComponent =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(InputComponent, _Component);
-
-  function InputComponent(props) {
-    var _this;
-
-    _classCallCheck(this, InputComponent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(InputComponent).call(this, props));
-    _this.handler = _this.handler.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(InputComponent, [{
-    key: "handler",
-    value: function handler() {
-      console.log(this.refs);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          name = _this$props.name,
-          type = _this$props.type,
-          is_required = _this$props.is_required,
-          placeholder = _this$props.placeholder,
-          className = _this$props.className;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: type,
-        required: is_required,
-        name: name,
-        placeholder: placeholder,
-        className: className.join(' ')
-      });
-    }
-  }]);
-
-  return InputComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-var RenderInputComponents =
-/*#__PURE__*/
-function (_Component2) {
-  _inherits(RenderInputComponents, _Component2);
-
-  function RenderInputComponents(props) {
-    _classCallCheck(this, RenderInputComponents);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(RenderInputComponents).call(this, props));
-  }
-
-  _createClass(RenderInputComponents, [{
-    key: "render",
-    value: function render() {
-      var inputs = this.props.inputs;
-      return inputs.map(function (input, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InputComponent, _extends({}, input, {
-          key: index,
-          ref: "single_input".concat(index)
-        }));
-      });
-    }
-  }]);
-
-  return RenderInputComponents;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-/*const RenderInputComponents = ({inputs}) =>
-    inputs.map((input, index) =>
-        <InputComponent {...input} key={index}/>
-    );*/
-
-
-InputComponent.propsType = {
-  name: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  refs: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  type: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  required: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  placeholder: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  className: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array.isRequired
-};
-
-
-/***/ }),
-
-/***/ "./resources/js/constants.js":
-/*!***********************************!*\
-  !*** ./resources/js/constants.js ***!
-  \***********************************/
-/*! exports provided: phones, recipeIngridients, recipeNames, data, test_data, recept, form */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "phones", function() { return phones; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recipeIngridients", function() { return recipeIngridients; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recipeNames", function() { return recipeNames; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "data", function() { return data; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "test_data", function() { return test_data; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recept", function() { return recept; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "form", function() { return form; });
-var phones = ['8 925 073 02 81', '8 977 890 87 34'];
-var recipeIngridients = [["1 lb Salmon", "1 cup Pine Nuts", "2 cups Butter Lettuce", "1 Yellow Squash", "1/2 cup Olive Oil", "3 cloves of Garlic"], ["¼ cup plain yogurt", "1 tbsp. apple cider vinegar", "1 tbsp. water", "Salt", "Black pepper", "1 can chickpeas, rinsed and drained", "2 ½ cups of sliced green cabbage", "2 stalks celery (sliced)", "2 shredded carrots", "2 tbsps. sesame seeds (toasted)"], ["A handful of kale", "A handful of cabbage", "A handful of parsley", "A stalk of celery", "1/2 cup Olive Oil", "An apple or a pear"]];
-var recipeNames = [{
-  "Baker Salomon": {
-    id: "recipe-0",
-    "data-type": "title"
-  }
-}, {
-  "Chickpea Slaw": {
-    id: "recipe-1",
-    "data-type": "title",
-    "data-react-root": "title"
-  }
-}, {
-  "Juice Your Greens": {
-    id: "recipe-2",
-    "data-type": "title",
-    "data-react-root": "title"
-  }
-}];
-var data = [{
-  "name": "Baked Salmon",
-  "ingredients": [{
-    "name": "Salmon",
-    "amount": 1,
-    "measurement": "l lb"
-  }, {
-    "name": "Pine Nuts",
-    "amount": 1,
-    "measurement": "cup"
-  }, {
-    "name": "Butter Lettuce",
-    "amount": 2,
-    "measurement": "cups"
-  }, {
-    "name": "Yellow Squash",
-    "amount": 1,
-    "measurement": "med"
-  }, {
-    "name": "Olive Oil",
-    "amount": 0.5,
-    "measurement": "cup"
-  }, {
-    "name": "Garlic",
-    "amount": 3,
-    "measurement": "cloves"
-  }],
-  "steps": ["Preheat the oven to 350 degrees.", "Spread the olive oil around a glass baking dish.", "Add the salmon, garlic, and pine nuts to the dish.", "Bake for 15 minutes.", "Add the yellow squash and put back in the oven for 30 mins.", "Remove from oven and let cool for 15 minutes. Add the lettuce and serve."]
-}, {
-  "name": "Fish Tacos",
-  "ingredients": [{
-    "name": "Whitefish",
-    "amount": 1,
-    "measurement": "l lb"
-  }, {
-    "name": "Cheese",
-    "amount": 1,
-    "measurement": "cup"
-  }, {
-    "name": "Iceberg Lettuce",
-    "amount": 2,
-    "measurement": "cups"
-  }, {
-    "name": "Tomatoes",
-    "amount": 2,
-    "measurement": "large"
-  }, {
-    "name": "Tortillas",
-    "amount": 3,
-    "measurement": "med"
-  }],
-  "steps": ["Cook the fish on the grill until hot.", "Place the fish on the 3 tortillas.", "Top them with lettuce, tomatoes, and cheese."]
-}];
-var recept = {
-  "name": "Fish Tacos",
-  "ingredients": [{
-    "name": "Whitefish",
-    "amount": 1,
-    "measurement": "l lb"
-  }, {
-    "name": "Cheese",
-    "amount": 1,
-    "measurement": "cup"
-  }, {
-    "name": "Iceberg Lettuce",
-    "amount": 2,
-    "measurement": "cups"
-  }, {
-    "name": "Tomatoes",
-    "amount": 2,
-    "measurement": "large"
-  }, {
-    "name": "Tortillas",
-    "amount": 3,
-    "measurement": "med"
-  }],
-  "steps": ["Cook the fish on the grill until hot.", "Place the fish on the 3 tortillas.", "Top them with lettuce, tomatoes, and cheese."]
-};
-var test_data = {
-  name: "test",
-  lName: "test_ivanov",
-  title: "description"
-};
-var form = {
-  action: "/",
-  method: 'POST',
-  className: ['form-group', 'color_form'],
-  refs: ['_color_name', '_hex_name'],
-  inputs: [{
-    name: 'color_name',
-    type: 'text',
-    is_required: false,
-    placeholder: 'Enter color name',
-    className: ['form-control']
-  }, {
-    name: 'hex_name',
-    type: 'color',
-    is_required: false,
-    placeholder: 'Enter hex name color',
-    className: ['form-control']
-  }],
-  buttons: [{
-    type: 'submit',
-    title: "Отправить",
-    className: ['btn', 'btn-success', 'btn-sm'],
-    events: []
-  }]
+  children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired
 };
 
 

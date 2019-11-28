@@ -125,4 +125,5 @@ const form = {
         {type:'submit',title:"Отправить",className:['btn','btn-success','btn-sm'],events:[]},
     ]
 };
+
 export {phones,recipeIngridients,recipeNames,data,test_data,recept,form}
