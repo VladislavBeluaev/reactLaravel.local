@@ -71,5 +71,15 @@ a {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr;
+    .star-wrapper{
+      display: flex;
+      p{
+        margin-right: @defaultGutter/4;
+        &:hover{
+          cursor: pointer;
+          color:orange;
+        }
+      }
+    }
   }
 }

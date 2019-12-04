@@ -180,3 +180,14 @@ nav[role="navigation"] ul[role="menu"] li a:hover {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
 }
+#main_content .newsWrapper .star-wrapper {
+  display: -webkit-box;
+  display: flex;
+}
+#main_content .newsWrapper .star-wrapper p {
+  margin-right: 6px;
+}
+#main_content .newsWrapper .star-wrapper p:hover {
+  cursor: pointer;
+  color: orange;
+}

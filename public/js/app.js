@@ -52036,15 +52036,27 @@ __webpack_require__.r(__webpack_exports__);
 var news = [{
   author: 'Саша Печкин',
   text: 'В четчерг, четвертого числа в четыре с четвертью часа...',
-  bigText: 'четыре чёрненьких чумазеньких чертёнка чертили чёрными чернилами чертёж.'
+  bigText: 'четыре чёрненьких чумазеньких чертёнка чертили чёрными чернилами чертёж.',
+  ratting: {
+    countStart: 5,
+    selectedStarClassName: 'selected'
+  }
 }, {
   author: 'Просто Вася',
   text: 'Считаю, что $ должен стоить 35 рублей!',
-  bigText: 'А евро 42!'
+  bigText: 'А евро 42!',
+  ratting: {
+    countStart: 5,
+    selectedStarClassName: 'selected'
+  }
 }, {
   author: 'Гость',
   text: 'Бесплатно. Скачать. Лучший сайт - http://localhost:3000',
-  bigText: 'На самом деле платно, просто нужно прочитать очень длинное лицензионное соглашение'
+  bigText: 'На самом деле платно, просто нужно прочитать очень длинное лицензионное соглашение',
+  ratting: {
+    countStart: 5,
+    selectedStarClassName: 'selected'
+  }
 }];
 
 
@@ -52123,6 +52135,188 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewsComponents", function() { return NewsComponents; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../star_rating/StarComponent */ "./resources/js/components/star_rating/StarComponent.js");
+function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+    _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+
+
+
+
+
+var NewsComponents =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(NewsComponents, _Component);
+
+  function NewsComponents(props) {
+    var _this;
+
+    _classCallCheck(this, NewsComponents);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NewsComponents).call(this, props));
+    _this.state = {
+      visible: false
+    };
+    console.log(_this.props);
+    _this.clickHandler = _this.clickHandler.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(NewsComponents, [{
+    key: "clickHandler",
+    value: function clickHandler(e) {
+      var target = e.target;
+      e.preventDefault(target.tagName);
+      if (target.tagName !== 'A') return false;
+      this.setState(function (prevState) {
+        return {
+          visible: !prevState.visible
+        };
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          author = _this$props.author,
+          text = _this$props.text,
+          bigText = _this$props.bigText;
+      var visible = this.state.visible;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card",
+        style: {
+          width: "18rem"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "card-title"
+      }, author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, text, "..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: visible !== false ? 'card-text' : 'd-none'
+      }, bigText), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#",
+        className: "card-link",
+        onClick: this.clickHandler
+      }, visible === false ? 'Читать далее' : 'Свернуть описание'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-ratting"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u041E\u0442\u0437\u044B\u0432\u044B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "star-wrapper"
+      }))));
+    }
+  }]);
+
+  return NewsComponents;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+NewsComponents.propsType = {
+  author: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+  bigText: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired
+};
+
+
+/***/ }),
+
+/***/ "./resources/js/components/star_rating/StarComponent.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/star_rating/StarComponent.js ***!
+  \**************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -52218,58 +52412,43 @@ function _setPrototypeOf(o, p) {
 
 
 
-var NewsComponents =
+var StarComponent =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(NewsComponents, _Component);
+  _inherits(StarComponent, _Component);
 
-  function NewsComponents(props) {
+  function StarComponent(props) {
     var _this;
 
-    _classCallCheck(this, NewsComponents);
+    _classCallCheck(this, StarComponent);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(NewsComponents).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(StarComponent).call(this, props));
     _this.state = {
-      visible: false
+      selected: false,
+      starSelectedIndex: 0
     };
     return _this;
   }
 
-  _createClass(NewsComponents, [{
+  _createClass(StarComponent, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          author = _this$props.author,
-          text = _this$props.text,
-          bigText = _this$props.bigText;
-      var visible = this.state.visible;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card",
-        style: {
-          width: "18rem"
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-        className: "card-title"
-      }, author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "card-text"
-      }, text, "..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#",
-        className: "card-link"
-      }, "\u0427\u0438\u0442\u0430\u0442\u044C \u0434\u0430\u043B\u0435\u0435")));
+          count = _this$props.count,
+          selectedStarClassName = _this$props.selectedStarClassName;
+      var _this$state = this.state,
+          isSelected = _this$state.selected,
+          starSelectedIndex = _this$state.starSelectedIndex;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: isSelected === false ? 'star' : "star ".concat(selectedStarClassName)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "fa fa-star"
+      }));
     }
   }]);
 
-  return NewsComponents;
+  return StarComponent;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-NewsComponents.propsType = {
-  author: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
-  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
-  bigText: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired
-};
-
 
 /***/ }),
 
@@ -52280,7 +52459,7 @@ NewsComponents.propsType = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\temp\OSPanel_new\OSPanel\domains\reactLaravel.local\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! d:\OSPanel\domains\reactLaravel.local\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
