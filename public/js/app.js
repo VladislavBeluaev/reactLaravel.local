@@ -51961,91 +51961,91 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _stars_files_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./stars_files/constants */ "./resources/js/Output/stars_files/constants.js");
-/* harmony import */ var _stars_files_events_handlers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./stars_files/events.handlers */ "./resources/js/Output/stars_files/events.handlers.js");
-/* harmony import */ var _components_star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/star_rating/StarComponent */ "./resources/js/components/star_rating/StarComponent.js");
+/* harmony import */ var _news_data_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./news_data/constants */ "./resources/js/Output/news_data/constants.js");
+/* harmony import */ var _components_news_NewsComponents__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/news/NewsComponents */ "./resources/js/components/news/NewsComponents.js");
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
 
 
 
 
+/*import {starsAttributes} from "./stars_files/constants";
+import {onClick} from "./stars_files/events.handlers";
+import {StarItem, StarWrapper} from "../components/star_rating/StarComponent";*/
 
 
 
-var App = function App(props) {
-  var _props$star = props.star,
-      starsCount = _props$star.starsCount,
-      starItem = _props$star.starItem,
-      starWrapper = _props$star.starWrapper;
-  var stars = [];
 
-  while (starsCount) {
-    stars.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_5__["StarItem"], {
-      className: starItem.className,
-      key: starsCount
+var App = function App(_ref) {
+  var news = _ref.news;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "newsWrapper"
+  }, news.map(function (newsItem, index) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_NewsComponents__WEBPACK_IMPORTED_MODULE_4__["NewsComponents"], _extends({}, newsItem, {
+      key: index
     }));
-    starsCount--;
+  })));
+  /*let {starsCount, starItem, starWrapper} = props.star;
+  let stars = [];
+  while (starsCount) {
+      stars.push(<StarItem
+          className={starItem.className}
+          selected={starItem.selected}
+                           key={starsCount}/>);
+      starsCount--;
   }
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_5__["StarWrapper"], {
-    className: starWrapper.className,
-    children: stars,
-    onClick: _stars_files_events_handlers__WEBPACK_IMPORTED_MODULE_4__["onClick"]
-  });
+  return (
+      <StarWrapper className={starWrapper.className}
+                              children={stars} onClick={onClick}/>
+  )*/
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, {
-  star: _stars_files_constants__WEBPACK_IMPORTED_MODULE_3__["starsAttributes"]
+  news: _news_data_constants__WEBPACK_IMPORTED_MODULE_3__["news"]
 }), document.getElementById('main_content'));
 
 /***/ }),
 
-/***/ "./resources/js/Output/stars_files/constants.js":
-/*!******************************************************!*\
-  !*** ./resources/js/Output/stars_files/constants.js ***!
-  \******************************************************/
-/*! exports provided: starsAttributes */
+/***/ "./resources/js/Output/news_data/constants.js":
+/*!****************************************************!*\
+  !*** ./resources/js/Output/news_data/constants.js ***!
+  \****************************************************/
+/*! exports provided: news */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "starsAttributes", function() { return starsAttributes; });
-var starsAttributes = {
-  starsCount: 5,
-  starWrapper: {
-    className: ['star-ratting'],
-    events: {
-      onClick: function onClick(e) {
-        var target = e.target;
-      }
-    }
-  },
-  starItem: {
-    className: ['fa', 'fa-star'],
-    selected: false
-  }
-};
-
-
-/***/ }),
-
-/***/ "./resources/js/Output/stars_files/events.handlers.js":
-/*!************************************************************!*\
-  !*** ./resources/js/Output/stars_files/events.handlers.js ***!
-  \************************************************************/
-/*! exports provided: onClick */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onClick", function() { return onClick; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./resources/js/Output/stars_files/constants.js");
-
-
-var onClick = function onClick(event) {
-  var target = event.target;
-  if (target.tagName === 'SPAN' && target.closest(".".concat(_constants__WEBPACK_IMPORTED_MODULE_0__["starsAttributes"].starWrapper.className))) console.log(target);
-};
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "news", function() { return news; });
+var news = [{
+  author: 'Саша Печкин',
+  text: 'В четчерг, четвертого числа в четыре с четвертью часа...',
+  bigText: 'четыре чёрненьких чумазеньких чертёнка чертили чёрными чернилами чертёж.'
+}, {
+  author: 'Просто Вася',
+  text: 'Считаю, что $ должен стоить 35 рублей!',
+  bigText: 'А евро 42!'
+}, {
+  author: 'Гость',
+  text: 'Бесплатно. Скачать. Лучший сайт - http://localhost:3000',
+  bigText: 'На самом деле платно, просто нужно прочитать очень длинное лицензионное соглашение'
+}];
 
 
 /***/ }),
@@ -52113,136 +52113,161 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/star_rating/StarComponent.js":
-/*!**************************************************************!*\
-  !*** ./resources/js/components/star_rating/StarComponent.js ***!
-  \**************************************************************/
-/*! exports provided: StarItem, StarWrapper */
+/***/ "./resources/js/components/news/NewsComponents.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/news/NewsComponents.js ***!
+  \********************************************************/
+/*! exports provided: NewsComponents */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarItem", function() { return StarItem; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarWrapper", function() { return StarWrapper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewsComponents", function() { return NewsComponents; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
+function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(source, true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(source).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+    _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
   } else {
-    obj[key] = value;
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+    };
   }
 
-  return obj;
+  return _typeof(obj);
 }
 
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
 
-  var target = _objectWithoutPropertiesLoose(source, excluded);
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
 
-  var key, i;
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
 
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
 
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
     }
-  }
-
-  return target;
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
 
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
+  return _setPrototypeOf(o, p);
 }
 
 
 
 
 
-var StarItem = function StarItem(_ref) {
-  var className = _ref.className;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: className.join(" ")
-  }, null));
-};
+var NewsComponents =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(NewsComponents, _Component);
 
-StarItem.propTypes = {
-  className: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired
-};
+  function NewsComponents(props) {
+    var _this;
 
-var StarWrapper = function StarWrapper(_ref2) {
-  var className = _ref2.className,
-      children = _ref2.children,
-      events = _objectWithoutProperties(_ref2, ["className", "children"]);
+    _classCallCheck(this, NewsComponents);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('div', _objectSpread({
-    className: className
-  }, events), children);
-};
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NewsComponents).call(this, props));
+    _this.state = {
+      visible: false
+    };
+    return _this;
+  }
 
-StarWrapper.propTypes = {
-  className: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
-  children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired
+  _createClass(NewsComponents, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          author = _this$props.author,
+          text = _this$props.text,
+          bigText = _this$props.bigText;
+      var visible = this.state.visible;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card",
+        style: {
+          width: "18rem"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "card-title"
+      }, author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-text"
+      }, text, "..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#",
+        className: "card-link"
+      }, "\u0427\u0438\u0442\u0430\u0442\u044C \u0434\u0430\u043B\u0435\u0435")));
+    }
+  }]);
+
+  return NewsComponents;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+NewsComponents.propsType = {
+  author: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+  bigText: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired
 };
 
 

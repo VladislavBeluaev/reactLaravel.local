@@ -10,7 +10,11 @@ const starsAttributes = {
     },
     starItem:{
         className:['fa','fa-star'],
-        selected:false,
+        selected:{
+            defaultClass:'star',
+            value:false,
+            selected:'star selected'
+        }
     }
 };
 export {starsAttributes}

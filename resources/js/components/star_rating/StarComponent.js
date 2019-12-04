@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 
-const StarItem = ({className}) => {
+const StarItem = ({className,selected}) => {
+    console.log(selected);
     return (
-        <p>
-            <span className={className.join(" ")}>{null}</span>
+        <p className={selected.value!==false?selected.selected:selected.defaultClass}>
+            <span className={className.join(' ')}>{null}</span>
         </p>
 
     );
