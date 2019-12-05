@@ -51981,44 +51981,82 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(source, true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(source).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 
 
-/*import {starsAttributes} from "./stars_files/constants";
-import {onClick} from "./stars_files/events.handlers";
-import {StarItem, StarWrapper} from "../components/star_rating/StarComponent";*/
 
 
 
 
 var App = function App(_ref) {
-  var news = _ref.news;
+  var news = _ref.news,
+      newsRatting = _ref.newsRatting;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "newsWrapper"
   }, news.map(function (newsItem, index) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_NewsComponents__WEBPACK_IMPORTED_MODULE_4__["NewsComponents"], _extends({}, newsItem, {
+    var data = _objectSpread({}, newsItem, {
+      newsRatting: newsRatting
+    });
+
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_NewsComponents__WEBPACK_IMPORTED_MODULE_4__["NewsComponents"], _extends({}, data, {
       key: index
     }));
   })));
-  /*let {starsCount, starItem, starWrapper} = props.star;
-  let stars = [];
-  while (starsCount) {
-      stars.push(<StarItem
-          className={starItem.className}
-          selected={starItem.selected}
-                           key={starsCount}/>);
-      starsCount--;
-  }
-  return (
-      <StarWrapper className={starWrapper.className}
-                              children={stars} onClick={onClick}/>
-  )*/
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, {
-  news: _news_data_constants__WEBPACK_IMPORTED_MODULE_3__["news"]
+  news: _news_data_constants__WEBPACK_IMPORTED_MODULE_3__["news"],
+  newsRatting: _news_data_constants__WEBPACK_IMPORTED_MODULE_3__["starsRatting"]
 }), document.getElementById('main_content'));
 
 /***/ }),
@@ -52027,37 +52065,31 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 /*!****************************************************!*\
   !*** ./resources/js/Output/news_data/constants.js ***!
   \****************************************************/
-/*! exports provided: news */
+/*! exports provided: news, starsRatting */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "news", function() { return news; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "starsRatting", function() { return starsRatting; });
 var news = [{
   author: 'Саша Печкин',
   text: 'В четчерг, четвертого числа в четыре с четвертью часа...',
-  bigText: 'четыре чёрненьких чумазеньких чертёнка чертили чёрными чернилами чертёж.',
-  ratting: {
-    countStart: 5,
-    selectedStarClassName: 'selected'
-  }
+  bigText: 'четыре чёрненьких чумазеньких чертёнка чертили чёрными чернилами чертёж.'
 }, {
   author: 'Просто Вася',
   text: 'Считаю, что $ должен стоить 35 рублей!',
-  bigText: 'А евро 42!',
-  ratting: {
-    countStart: 5,
-    selectedStarClassName: 'selected'
-  }
+  bigText: 'А евро 42!'
 }, {
   author: 'Гость',
   text: 'Бесплатно. Скачать. Лучший сайт - http://localhost:3000',
-  bigText: 'На самом деле платно, просто нужно прочитать очень длинное лицензионное соглашение',
-  ratting: {
-    countStart: 5,
-    selectedStarClassName: 'selected'
-  }
+  bigText: 'На самом деле платно, просто нужно прочитать очень длинное лицензионное соглашение'
 }];
+var starsRatting = {
+  count: 5,
+  isSelectedStar: false,
+  selectedStarClassName: 'selected'
+};
 
 
 /***/ }),
@@ -52246,7 +52278,6 @@ function (_Component) {
     _this.state = {
       visible: false
     };
-    console.log(_this.props);
     _this.clickHandler = _this.clickHandler.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -52269,7 +52300,8 @@ function (_Component) {
       var _this$props = this.props,
           author = _this$props.author,
           text = _this$props.text,
-          bigText = _this$props.bigText;
+          bigText = _this$props.bigText,
+          ratting = _this$props.newsRatting;
       var visible = this.state.visible;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card",
@@ -52288,11 +52320,7 @@ function (_Component) {
         href: "#",
         className: "card-link",
         onClick: this.clickHandler
-      }, visible === false ? 'Читать далее' : 'Свернуть описание'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-ratting"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u041E\u0442\u0437\u044B\u0432\u044B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "star-wrapper"
-      }))));
+      }, visible === false ? 'Читать далее' : 'Свернуть описание'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_star_rating_StarComponent__WEBPACK_IMPORTED_MODULE_3__["StarRatting"], ratting)));
     }
   }]);
 
@@ -52312,18 +52340,93 @@ NewsComponents.propsType = {
 /*!**************************************************************!*\
   !*** ./resources/js/components/star_rating/StarComponent.js ***!
   \**************************************************************/
-/*! no exports provided */
+/*! exports provided: StarRatting */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatting", function() { return StarRatting; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
@@ -52411,36 +52514,27 @@ function _setPrototypeOf(o, p) {
 
 
 
-
 var StarComponent =
 /*#__PURE__*/
 function (_Component) {
   _inherits(StarComponent, _Component);
 
   function StarComponent(props) {
-    var _this;
-
     _classCallCheck(this, StarComponent);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(StarComponent).call(this, props));
-    _this.state = {
-      selected: false,
-      starSelectedIndex: 0
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(StarComponent).call(this, props));
   }
 
   _createClass(StarComponent, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          count = _this$props.count,
-          selectedStarClassName = _this$props.selectedStarClassName;
-      var _this$state = this.state,
-          isSelected = _this$state.selected,
-          starSelectedIndex = _this$state.starSelectedIndex;
+          isSelectedStar = _this$props.isSelectedStar,
+          selectedStarClassName = _this$props.selectedStarClassName,
+          clickHandler = _this$props.clickHandler;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: isSelected === false ? 'star' : "star ".concat(selectedStarClassName)
+        className: isSelectedStar === false ? 'star' : "star ".concat(selectedStarClassName),
+        onClick: clickHandler
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "fa fa-star"
       }));
@@ -52449,6 +52543,60 @@ function (_Component) {
 
   return StarComponent;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+var StarRatting =
+/*#__PURE__*/
+function (_Component2) {
+  _inherits(StarRatting, _Component2);
+
+  function StarRatting(props) {
+    var _this;
+
+    _classCallCheck(this, StarRatting);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(StarRatting).call(this, props));
+    _this.state = {
+      selectedStar: 0
+    };
+    _this.clickHandler = _this.clickHandler.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(StarRatting, [{
+    key: "clickHandler",
+    value: function clickHandler(index) {
+      this.setState({
+        selectedStar: index
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props2 = this.props,
+          count = _this$props2.count,
+          starData = _objectWithoutProperties(_this$props2, ["count"]);
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-ratting"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "\u041E\u0442\u0437\u044B\u0432\u044B"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "star-wrapper"
+      }, _toConsumableArray(Array(count)).map(function (item, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StarComponent, _extends({}, starData, {
+          clickHandler: function clickHandler() {
+            _this2.clickHandler(i + 1);
+          },
+          key: i
+        }));
+      })));
+    }
+  }]);
+
+  return StarRatting;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
 
 /***/ }),
 
@@ -52459,7 +52607,7 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\OSPanel\domains\reactLaravel.local\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! c:\osp\OSPanel\domains\reactLaravel.local\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

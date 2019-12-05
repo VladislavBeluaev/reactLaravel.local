@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
-import {StarComponent} from "../star_rating/StarComponent"
+import {StarRatting} from "../star_rating/StarComponent"
 class NewsComponents extends Component {
     constructor(props) {
         super(props);
         this.state = {
             visible: false
         };
-        console.log(this.props);
         this.clickHandler = this.clickHandler.bind(this);
     }
 
@@ -21,7 +20,7 @@ class NewsComponents extends Component {
         }));
     }
     render() {
-        let {author, text, bigText} = this.props;
+        let {author, text, bigText,newsRatting:ratting} = this.props;
         let {visible} = this.state;
         return (
             <div className="card" style={{width: "18rem"}}>
@@ -32,15 +31,7 @@ class NewsComponents extends Component {
                     <a href="#" className="card-link" onClick={this.clickHandler}>
                         {visible === false ? 'Читать далее' : 'Свернуть описание'}
                     </a>
-                    <div className="card-ratting">
-                        <h6>Отзывы</h6>
-                        <div className="star-wrapper">
-                            {
-
-                            }
-                        </div>
-
-                    </div>
+                    {<StarRatting {...ratting}/>}
                 </div>
             </div>
         );

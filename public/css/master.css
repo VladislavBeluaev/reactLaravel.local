@@ -191,3 +191,6 @@ nav[role="navigation"] ul[role="menu"] li a:hover {
   cursor: pointer;
   color: orange;
 }
+#main_content .newsWrapper .star-wrapper p.selected {
+  color: red;
+}
