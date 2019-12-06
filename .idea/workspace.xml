@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfa7f3c6-9b05-4c1b-8032-ea0fbcf8c7e8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/reactLaravel.local.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/reactLaravel.local.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Output/color_organizer/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/color_organizer/ColorOrganizerComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/forms/ButtonComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/forms/FormComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/forms/InputComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/master.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/master.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/master.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Output/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Output/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Output/news_data/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Output/news_data/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/news/NewsComponents.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/news/NewsComponents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Output/stars_files/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Output/stars_files/events.handlers.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/star_rating/StarComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/star_rating/StarComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/less/_master.less" beforeDir="false" afterPath="$PROJECT_DIR$/resources/less/_master.less" afterDir="false" />
     </list>
@@ -185,6 +186,7 @@
       <workItem from="1575450645341" duration="11472000" />
       <workItem from="1575489764945" duration="8482000" />
       <workItem from="1575551027304" duration="6450000" />
+      <workItem from="1575615970737" duration="12653000" />
     </task>
     <servers />
   </component>
@@ -196,7 +198,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

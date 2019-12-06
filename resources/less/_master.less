@@ -77,7 +77,7 @@ a {
         margin-right: @defaultGutter/4;
         &:hover{
           cursor: pointer;
-          color:orange;
+          color:orange!important;
         }
           &.selected{
               color:red;
@@ -85,4 +85,24 @@ a {
       }
     }
   }
+    .color-organizer{
+        margin-top: @defaultGutter*2;
+        form{
+            margin-top: @defaultGutter/2;
+            .inline-form{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                div{
+                    &:first-child{
+                        width:50%
+                    }
+                    &:nth-child(2){
+                        margin-left: @defaultGutter;
+                        margin-right: @defaultGutter;
+                    }
+                }
+            }
+        }
+    }
 }

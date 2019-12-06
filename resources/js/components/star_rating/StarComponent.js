@@ -29,19 +29,26 @@ class StarRatting extends Component{
         });
     }
     render() {
-        let {count,...starData} = this.props;
+        let {count,isSelectedStar,...starData} = this.props;
+        let {selectedStar} = this.state;
         return (
             <div className="card-ratting">
                 <h6>Отзывы</h6>
                 <div className="star-wrapper">
                     {
                         [...Array(count)].map((item,i)=>
-                            <StarComponent {...starData} clickHandler={()=>{
+                            <StarComponent
+                                isSelectedStar={i<selectedStar}
+                                {...starData} clickHandler={()=>{
                                 this.clickHandler(i+1)
                             }} key={i}/>
                         )
                     }
                 </div>
+                <p className="className">
+                    {selectedStar===0?'':`Рейтинг ${selectedStar} из ${count}`}
+                </p>
+
             </div>
         );
     }

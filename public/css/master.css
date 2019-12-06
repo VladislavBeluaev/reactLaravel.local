@@ -189,8 +189,29 @@ nav[role="navigation"] ul[role="menu"] li a:hover {
 }
 #main_content .newsWrapper .star-wrapper p:hover {
   cursor: pointer;
-  color: orange;
+  color: orange!important;
 }
 #main_content .newsWrapper .star-wrapper p.selected {
   color: red;
+}
+#main_content .color-organizer {
+  margin-top: 48px;
+}
+#main_content .color-organizer form {
+  margin-top: 12px;
+}
+#main_content .color-organizer form .inline-form {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+}
+#main_content .color-organizer form .inline-form div:first-child {
+  width: 50%;
+}
+#main_content .color-organizer form .inline-form div:nth-child(2) {
+  margin-left: 24px;
+  margin-right: 24px;
 }
